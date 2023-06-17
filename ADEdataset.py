@@ -67,7 +67,7 @@ class ADEDataset(torch.utils.data.Dataset):
         target["iscrowd"] = torch.zeros((len(boxes),), dtype=torch.int64)
 
         if self.transforms is not None:
-            img = self.transforms(img)
+            img, target = self.transforms(img, target)
 
         return img, target
 
